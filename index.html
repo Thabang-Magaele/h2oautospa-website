@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="/favicon.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--<script src="https://unpkg.com/feather-icons"></script>-->
+    <link rel="preconnect" href="https://maps.googleapis.com">
+    <link rel="dns-prefetch" href="https://maps.googleapis.com">    
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>    
+    <title>Home</title>
+</head>
+<body>
+
+    <div class="wrapper">
+        <header class="header">
+            <img src="images/1.JPG" alt="H2O AutoSpa Logo">
+            <span>h2oAutoSpa</span>
+        </header>
+
+        <nav id="navbar">
+            <a href="index.html">Home</a>
+            <a href="feedback.html">Feedback</a>
+            <a href="contact.html">Contact Us</a>
+        </nav>
+
+        <h1 id="hero_title">Clean Cars. Happy Drivers.</h1>
+        
+    <div>
+    <section class="info-section">
+    <h2>Deep Clean, Every Time</h2>
+    <p>  
+      At h2oAutoSpa, we go beyond the surface. <br>
+      Our deep-cleaning process removes stubborn grime, <br>
+      leaving your car spotless inside and out.
+    </p>
+      <img src="images/3.jpeg" alt="Car Wash" class="info-image">
+    </section>
+</div>
+
+<div>
+    <section class="info-section">
+        <h2>Our Services</h2>
+        <p>
+           We have the lowest rates in White River! <br>
+           Choose from our range of services: <br>
+           <small style="color: #0277bd; font-style: italic;">Click image to enlarge</small>
+        </p>
+            <img src="images/services.jpg" alt="Price List" class="info-image" id="priceImage" onclick="openModal('priceImage')">
+        </section>
+
+        <div id="imageModal" class="modal" onclick="closeModal()">
+            <span class="close-modal" onclick="closeModal()">&times;</span>
+            <img class="modal-content" id="modalImage" alt="Enlarged view">
+        </div>
+
+<div>
+    <section class="info-section">
+
+        <h2>Where We're Located</h2>
+                <p>
+                    Find us at Kingsview Mall, White River, Mpumalanga. <br>
+                    Conveniently located for all your car care needs. <br>
+                    <a href="https://maps.app.goo.gl/5jSrcMdqWXZD1Jpw8" target="_blank" style="color: #0277bd;">Click here for directions</a>.
+                </p>
+
+
+     <div id="map">
+        <!-- Google Maps API
+              -->
+
+         <div class="loader">
+    <span class="bar"></span>
+    <span class="bar"></span>
+    <span class="bar"></span>
+        </div>      
+             
+        <script src="main.js"></script>  
+    </div>
+
+  
+
+    </section>
+</div>        
+
+    <section class="info-section">
+        <h2>Bring Your Fleet</h2>
+                <p>
+                    We cater to businesses too! <br>
+                    Our fleet services keep your company vehicles looking professional and well-maintained. <br>
+                    Ask about our special rates for bulk bookings.
+                </p>
+        <img src="images/5.jpeg" alt="Car Detailing" class="info-image">
+    </section>
+</div>
+
+<div>
+    <section class="info-section">
+        <h2>Cleanest Interiors In Town</h2>
+        <p>
+            From carpets to dashboards, <br>
+            we detail every inch of your car’s interior. <br>
+            Experience a fresh, like-new feel every time you step inside.
+        </p>
+        <img src="images/8.jpeg" alt="Car Detailing" class="info-image">
+    </section>
+</div>
+
+<div>
+    <section class="info-section">
+        <h2>Go Shopping, We Handle The Rest</h2>
+                <p>
+                    While you shop, we’ll pamper your car. <br>
+                    Our express services are designed to fit into your busy schedule, <br>
+                    giving you a clean car without the wait.
+                </p>
+      <!--  <img src="images/2.jpeg" alt="Car Detailing" class="info-image"> -->
+        <video class="info-image" autoplay muted loop playsinline preload="auto">
+            <source src="images/video.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </section>
+</div>
+
+
+
+
+
+
+<!--
+                <h4>Premium Hand Wash</h4>
+                <p>
+                    Nothing beats the personal touch. <br>
+                    Our hand wash service ensures a <br>
+                    gentle yet thorough clean that machines just can’t match.
+                </p>
+                
+                <h4>Showroom Shine</h4>
+                <p>
+                    We don’t just clean — we make your car shine like new. <br>
+                    Using high-quality products, <br>
+                    we restore that showroom finish you’ll be proud to drive.
+                </p>
+                
+                <h4>Eco-Friendly Products</h4>
+                <p>
+                    Clean cars, cleaner planet. <br>
+                    We use biodegradable soaps and water-efficient systems <br>
+                    to reduce our environmental impact — <br>
+                    without compromising quality.
+                </p>
+                
+                <h4>Fast, Friendly Service</h4>
+                <p>
+                    We value your time. <br>
+                    Whether you're booking a quick wash or full detailing, <br>
+                    our team ensures top-tier service with a smile, every time.<br>
+                </p>    
+-->            
+
+        <footer id="footer">
+            Phone: +27 63 785 8327
+            <br> Customer Care: +27 79 841 6616
+            <br>Email:  h2oautospawhiteriver@gmail.com
+            <br>Address: Kingsview Mall, White River, Mpumalanga
+            <br>Share this page with your friends and family!
+            <br> Follow us on social media
+            <div class="social-icons">
+               <!-- <a href="https://www.instagram.com/h2oautospawhiteriver/" target="_blank" title="Instagram"><i class="social-icon" data-feather="instagram"></i> </a>
+                <a href="https://web.facebook.com/profile.php?id=61578030370368" target="_blank" title="Facebook"><i class="social-icon" data-feather="facebook"></i></a>
+                <a href="https://www.tiktok.com/@h2oautospa.whiter" target="_blank" title="Tiktok"><i class="social-icon" data-feather="music"></i></a>-->
+               <a href="https://www.instagram.com/h2oautospawhiteriver/" title="Instagram" target="_blank"><ion-icon name="logo-instagram"  class="social-icon" ></ion-icon> </a> 
+               <a href="https://web.facebook.com/profile.php?id=61578030370368" title="Facebook" target="_blank"> <ion-icon name="logo-facebook"  class="social-icon" ></ion-icon> </a> 
+               <a href="https://www.tiktok.com/@h2oautospa.whiter?lang=en-GB" title="TikTok" target="_blank"> <ion-icon name="logo-tiktok"  class="social-icon" ></ion-icon> </a>                 
+            </div> 
+            <br>MTechSolutions © Copyright 2025
+        </footer>
+    </div>
+
+   <!-- <script>
+        feather.replace();
+    </script>-->
+
+    <script>
+                function openModal(imageId) {
+            const modal = document.getElementById('imageModal');
+            const modalImg = document.getElementById('modalImage');
+            const img = document.getElementById(imageId);
+            
+            modal.style.display = 'block';
+            modalImg.src = img.src;
+            modalImg.alt = img.alt;
+        }
+
+        function closeModal() {
+            document.getElementById('imageModal').style.display = 'none';
+        }
+
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                closeModal();
+            }
+        });
+    </script>
+</body>
+</html>
