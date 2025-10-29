@@ -50,6 +50,34 @@ body {
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
 }
 
+.header .promo-image {
+    width: 120px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 8px;
+    border: 3px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    margin-left: auto;
+}
+
+  .header .promo-image {
+    width: 100px;
+    height: 100px;
+    animation: pulse 2s infinite ease-in-out;
+  }
+
+  @keyframes pulse {
+    0% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.2);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+
 #navbar {
     background: linear-gradient(135deg, #01579b 0%, #0277bd 100%);
     position: fixed;
@@ -160,8 +188,8 @@ body {
 .modal-content {
     margin: auto;
     display: block;
-    max-width: 90%;
-    max-height: 90%;
+    max-width: 100%;
+    max-height: 100%;
     position: absolute;
     top: 50%;
     left: 50%;
@@ -311,6 +339,11 @@ body {
     }
 
     .header img {
+        width: 100px;
+        height: 100px;
+    }
+
+    .header .promo-image {
         width: 50px;
         height: 50px;
     }
