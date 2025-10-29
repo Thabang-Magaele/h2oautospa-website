@@ -63,7 +63,7 @@ body {
   .header .promo-image {
     width: 100px;
     height: 100px;
-    animation: pulse 2s infinite ease-in-out;
+    animation: pulse 0.6s infinite ease-in-out;
   }
 
   @keyframes pulse {
