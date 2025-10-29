@@ -15,11 +15,24 @@
         <span>h2oAutoSpa</span>
     </header>
 
-    <div id="navbar">
+    <nav id="navbar">
         <a href="index.html">Home</a>
         <a href="feedback.html">Feedback</a>
         <a href="contact.html">Contact Us</a>
-    </div>
+    </nav>
+
+            <script>
+        var prevScrollposnav = window.pageYOffset;
+        window.onscroll = function() {
+            var currentScrollPosnav = window.pageYOffset;
+            if (prevScrollposnav > currentScrollPosnav) {
+                document.getElementById("navbar").style.top = "11vh";
+            } else {
+                document.getElementById("navbar").style.top = "0";
+            }
+            prevScrollposnav = currentScrollPosnav;
+        }
+        </script>
 
     <div>
     <section class="info-section">
