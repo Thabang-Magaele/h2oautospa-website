@@ -1,18 +1,20 @@
 ---
 deployment:
   tasks:
-    # 1️⃣ Set deployment path
+    # 1️⃣ Define the deployment path
     - export DEPLOYPATH=/home/hoautosp/public_html/
 
-    # 2️⃣ Sync all files from repo to public_html
+    # 2️⃣ Sync all files from the repo to public_html
     - /bin/rsync -av --delete ./ $DEPLOYPATH
 
-    # 3️⃣ Set correct permissions
+    # 3️⃣ Set directory permissions to 755
     - /bin/find $DEPLOYPATH -type d -exec chmod 755 {} \;
+
+    # 4️⃣ Set file permissions to 644
     - /bin/find $DEPLOYPATH -type f -exec chmod 644 {} \;
 
-    # 4️⃣ Cache-bust your assets (force browsers to reload)
+    # 5️⃣ Auto-version assets in index.html to bust browser cache
     - /usr/bin/sed -i "s?v=[0-9]\+?v=$(date +%s)?g" $DEPLOYPATH/index.html
 
-    # 5️⃣ Optional: log deployment
+    # 6️⃣ log deployment date
     - echo "Deployment completed on $(date)" >> $DEPLOYPATH/deploy.log
