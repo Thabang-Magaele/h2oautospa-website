@@ -2,4 +2,19 @@
 deployment:
   tasks:
     - export DEPLOYPATH=/home/hoautosp/public_html/
-    - /bin/cp -R * $DEPLOYPATH
+
+    - /bin/rsync -av --delete ./ $DEPLOYPATH
+
+    - /bin/find $DEPLOYPATH -type d -exec chmod 755 {} \;
+    - /bin/find $DEPLOYPATH -type f -exec chmod 644 {} \;
+
+    - /bin/rm -f $DEPLOYPATH/*.cache
+    - /bin/rm -f $DEPLOYPATH/*.tmp
+
+    - /usr/bin/touch $DEPLOYPATH/index.html
+    - /usr/bin/touch $DEPLOYPATH/css/style.css
+    - /usr/bin/touch $DEPLOYPATH/js/main.js
+
+    - /usr/bin/sed -i "s?v=[0-9]\+?v=$(date +%s)?g" $DEPLOYPATH/index.html
+
+    - echo "Deployment completed on $(date)" >> $DEPLOYPATH/deploy.log
