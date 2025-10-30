@@ -3,18 +3,24 @@ deployment:
   tasks:
     - export DEPLOYPATH=/home/hoautosp/public_html/
 
+    # 1️⃣ Copy all new files from repo to live site
     - /bin/rsync -av --delete ./ $DEPLOYPATH
 
+    # 2️⃣ Set correct file permissions
     - /bin/find $DEPLOYPATH -type d -exec chmod 755 {} \;
     - /bin/find $DEPLOYPATH -type f -exec chmod 644 {} \;
 
+    # 3️⃣ Remove old cached files (if any)
     - /bin/rm -f $DEPLOYPATH/*.cache
     - /bin/rm -f $DEPLOYPATH/*.tmp
 
+    # 4️⃣ Clear browser + server cache automatically
     - /usr/bin/touch $DEPLOYPATH/index.html
     - /usr/bin/touch $DEPLOYPATH/css/style.css
     - /usr/bin/touch $DEPLOYPATH/js/main.js
 
+    # 5️⃣ Add versioning to assets (forces browser refresh)
     - /usr/bin/sed -i "s?v=[0-9]\+?v=$(date +%s)?g" $DEPLOYPATH/index.html
 
+    # 6️⃣ Log deployment time
     - echo "Deployment completed on $(date)" >> $DEPLOYPATH/deploy.log
