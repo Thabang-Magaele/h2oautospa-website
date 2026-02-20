@@ -2,20 +2,24 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css?v=30102025">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="main.js?v=30102025"></script>
+    <link rel="icon" type="image/png" href="/favicon.png">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!--<script src="https://unpkg.com/feather-icons"></script>-->
+    <link rel="preconnect" href="https://maps.googleapis.com">
+    <link rel="dns-prefetch" href="https://maps.googleapis.com">    
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>    
-    <title>Feedback</title>
+    <title>Book a Wash</title>
 </head>
 <body>
-    <header class="header">
-        <img src="images/1.JPG" alt="H2O AutoSpa Logo">
-        <span>h2oAutoSpa</span>
+<header class="header">
+    <img src="images/1.JPG" alt="H2O AutoSpa Logo">
+    <span>h2oAutoSpa</span>
     <img id="promoImage" src="images/promotion.jpeg" alt="Promotion" class="promo-image" onclick="openModal('promoImage')">
-    </header>
+</header>
 <!--
         <nav id="navbar">
             <a href="index.html">Home</a>
@@ -55,21 +59,31 @@ function myFunction() {
         <div id="imageModal" class="modal" onclick="closeModal()">
             <span class="close-modal" onclick="closeModal()">&times;</span>
             <img class="modal-content" id="modalImage" alt="Enlarged view">
-        </div>           
+        </div>        
 
-            <script>
-        var prevScrollposnav = window.pageYOffset;
-        window.onscroll = function() {
-            var currentScrollPosnav = window.pageYOffset;
-            if (prevScrollposnav > currentScrollPosnav) {
-                document.getElementById("navbar").style.top = "11vh";
-            } else {
-                document.getElementById("navbar").style.top = "0";
-            }
-            prevScrollposnav = currentScrollPosnav;
-        }
-        </script>
+    <div>
+        <footer id="footer">
+            Phone: +27 63 785 8327
+            <br> Customer Care: +27 79 841 6616
+            <br>Email:  h2oautospawhiteriver@gmail.com
+            <br>Address: Kingsview Mall, White River, Mpumalanga
+            <br>Share this page with your friends and family!
+            <br> Follow us on social media
+            <div class="social-icons">
+               <!-- <a href="https://www.instagram.com/h2oautospawhiteriver/" target="_blank" title="Instagram"><i class="social-icon" data-feather="instagram"></i> </a>
+                <a href="https://web.facebook.com/profile.php?id=61578030370368" target="_blank" title="Facebook"><i class="social-icon" data-feather="facebook"></i></a>
+                <a href="https://www.tiktok.com/@h2oautospa.whiter" target="_blank" title="Tiktok"><i class="social-icon" data-feather="music"></i></a>-->
+               <a href="https://www.instagram.com/h2oautospawhiteriver/" title="Instagram" target="_blank"> <ion-icon name="logo-instagram"  class="social-icon" ></ion-icon> </a> 
+               <a href="https://web.facebook.com/profile.php?id=61578030370368" title="Facebook" target="_blank"> <ion-icon name="logo-facebook"  class="social-icon" ></ion-icon> </a> 
+               <a href="https://www.tiktok.com/@h2oautospa.whiter" title="TikTok" target="_blank"> <ion-icon name="logo-tiktok"  class="social-icon" ></ion-icon> </a> 
+            </div> 
+            <br>MTechSolutions © Copyright 2025
+        </footer>
+    </div>
 
+   <!-- <script>
+        feather.replace();
+    </script>-->
     <script>
                 function openModal(imageId) {
             const modal = document.getElementById('imageModal');
@@ -90,81 +104,6 @@ function myFunction() {
                 closeModal();
             }
         });
-    </script>        
-
-    <div>
-    <section class="info-section">
-    <h2>Tell Us About Your Experience</h2>
-    <p>  
-        We value your feedback! <br>
-        Please share your thoughts and experiences with us. <br>
-        Your input helps us improve our services.
-    </p>
-      <img src="images/1.JPG" alt="Car Wash" class="info-image">
-    </section>
-</div>
-
-<div>
-  <section class="info-section">
-    <h2>Send Us An Email</h2>
-    
-    <p>Enter your Email address:</p>
-    <textarea id="email-address" name="email-address" rows="2" cols="50" placeholder="example@gmail.com"></textarea>
-    <br>
-
-    <p>Subject:</p>
-    <textarea id="subject" name="subject" rows="2" cols="50" placeholder="Enter the subject..."></textarea>
-    <br>
-
-    <p>Your message:</p>
-    <textarea id="message" name="message" rows="10" cols="50" placeholder="Write your message here..."></textarea>
-    <br>
-
-    <button class="submit" type="submit" onclick="sendFeedback()">Submit</button>
-
-    <script>
-      function sendFeedback() {
-        const email = document.getElementById('email-address').value.trim();
-        const subject = document.getElementById('subject').value.trim();
-        const message = document.getElementById('message').value.trim();
-
-        if (!email || !subject || !message) {
-          alert("Please fill in all fields before submitting.");
-          return;
-        }
-
-        const mailtoLink = `mailto:h2oautospawhiteriver@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent("From: " + email + "\n\n" + message)}`;
-        window.location.href = mailtoLink;
-
-        alert("Thank you for your feedback! We'll get back to you as soon as possible.");
-      }
     </script>
-  </section>
-</div>
-
-
-        <footer id="footer">
-            Phone: +27 63 785 8327
-            <br> Customer Care: +27 79 841 6616
-            <br>Email:  h2oautospawhiteriver@gmail.com
-            <br>Address: Kingsview Mall, White River, Mpumalanga
-            <br>Share this page with your friends and family!
-            <br> Follow us on social media
-            <div class="social-icons">
-               <!-- <a href="https://www.instagram.com/h2oautospawhiteriver/" target="_blank" title="Instagram"><i class="social-icon" data-feather="instagram"></i> </a>
-                <a href="https://web.facebook.com/profile.php?id=61578030370368" target="_blank" title="Facebook"><i class="social-icon" data-feather="facebook"></i></a>
-                <a href="https://www.tiktok.com/@h2oautospa.whiter" target="_blank" title="Tiktok"><i class="social-icon" data-feather="music"></i></a>-->
-               <a href="https://www.instagram.com/h2oautospawhiteriver/" title="Instagram" target="_blank"> <ion-icon name="logo-instagram"  class="social-icon" ></ion-icon> </a> 
-               <a href="https://web.facebook.com/profile.php?id=61578030370368" title="Facebook" target="_blank"> <ion-icon name="logo-facebook"  class="social-icon" ></ion-icon> </a> 
-               <a href="https://www.tiktok.com/@h2oautospa.whiter" title="TikTok" target="_blank"> <ion-icon name="logo-tiktok"  class="social-icon" ></ion-icon> </a>                 
-            </div> 
-            <br>MTechSolutions © Copyright 2025
-        </footer>
-    </div>
-
-   <!-- <script>
-        feather.replace();
-    </script>-->
-
 </body>
 </html>
