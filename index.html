@@ -9,6 +9,7 @@
     <!--<script src="https://unpkg.com/feather-icons"></script>-->
     <link rel="preconnect" href="https://maps.googleapis.com">
     <link rel="dns-prefetch" href="https://maps.googleapis.com">    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>    
     <title>Home</title>
@@ -16,17 +17,47 @@
 <body>
 
     <div class="wrapper">
+
 <header class="header">
     <img src="images/1.JPG" alt="H2O AutoSpa Logo">
     <span>h2oAutoSpa</span>
     <img id="promoImage" src="images/promotion.jpeg" alt="Promotion" class="promo-image" onclick="openModal('promoImage')">
 </header>
-
+<!--
         <nav id="navbar">
             <a href="index.html">Home</a>
+            <a href="booking.html">Book a Wash</a>         
+            <a href="contact.html">Contact</a>
             <a href="feedback.html">Feedback</a>
-            <a href="contact.html">Contact Us</a>
         </nav>
+-->
+        
+<!-- Top Navigation Menu -->
+<div class="topnav">
+  <!-- Navigation links (hidden by default) -->
+  <div  id="myLinks">
+            <a href="index.html">Home</a>
+          <!--  <a href="booking.html">Book a Wash</a> -->
+            <a href="contact.html">Contact</a>
+            <a href="feedback.html">Feedback</a>    
+  </div>
+  <!-- "Hamburger menu" / "Bar icon" to toggle the navigation links -->
+  <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+    <i class="fa fa-bars"></i>
+  </a>
+</div>
+
+<script>
+    /* Toggle between showing and hiding the navigation menu links when the user clicks on the hamburger menu / bar icon */
+function myFunction() {
+  var x = document.getElementById("myLinks");
+  if (x.style.display === "block") {
+    x.style.display = "none";
+  } else {
+    x.style.display = "block";
+  }
+}
+</script>
 
         <h1 id="hero_title">Clean Cars. Happy Drivers.</h1>
         

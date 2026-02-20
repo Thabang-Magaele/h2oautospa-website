@@ -87,7 +87,7 @@ body {
     }
   }
 
-#navbar {
+/*#navbar {
     background: linear-gradient(135deg, #01579b 0%, #0277bd 100%);
     position: fixed;
     top: 9vh;
@@ -133,7 +133,57 @@ body {
 
 #navbar a:hover::after {
     width: 80%;
+} */
+
+/*New navbar hamburger menu*/
+/* Style the navigation menu */
+.topnav {
+  overflow: hidden;
+  background-color: #0277bd;
+  margin-top: 5vh;
 }
+
+@media (max-width: 450px) {
+    .topnav {
+        margin-top: 2vh;
+    }
+}
+
+/* Hide the links inside the navigation menu (except for logo/home) */
+.topnav #myLinks {
+  display: none;
+}
+
+/* Style navigation menu links */
+.topnav a {
+  color: white;
+  padding: 10px;
+  text-decoration: none;
+  font-size: 17px;
+  display: block;
+}
+
+/* Style the hamburger menu */
+.topnav a.icon {
+  background: #0277bd;
+  display: block;
+  position: absolute;
+  left: 0;
+  position: fixed;
+    top: 11vh;
+    height: 50px;
+    width: 50px;
+    z-index: 999;
+    justify-content: center;
+}
+
+/* Add a grey background color on mouse-over */
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+/*End of New navbar hamburger menu*/
+
 
 .info-section {
     text-align: center;

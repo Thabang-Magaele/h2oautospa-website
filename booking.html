@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css?v=30102025">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="main.js?v=30102025"></script>
+    <link rel="icon" type="image/png" href="/favicon.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--<script src="https://unpkg.com/feather-icons"></script>-->
+    <link rel="preconnect" href="https://maps.googleapis.com">
+    <link rel="dns-prefetch" href="https://maps.googleapis.com">    
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>    
+    <title>Book a Wash</title>
+</head>
+<body>
+<header class="header">
+    <img src="images/1.JPG" alt="H2O AutoSpa Logo">
+    <span>h2oAutoSpa</span>
+    <img id="promoImage" src="images/promotion.jpeg" alt="Promotion" class="promo-image" onclick="openModal('promoImage')">
+</header>
+<!--
+        <nav id="navbar">
+            <a href="index.html">Home</a>
+            <a href="booking.html">Book a Wash</a>         
+            <a href="contact.html">Contact</a>
+            <a href="feedback.html">Feedback</a>
+        </nav>
+-->
+        
+<!-- Top Navigation Menu -->
+<div class="topnav">
+  <!-- Navigation links (hidden by default) -->
+  <div  id="myLinks">
+            <a href="index.html">Home</a>
+          <!--  <a href="booking.html">Book a Wash</a> -->
+            <a href="contact.html">Contact</a>
+            <a href="feedback.html">Feedback</a>    
+  </div>
+  <!-- "Hamburger menu" / "Bar icon" to toggle the navigation links -->
+  <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+    <i class="fa fa-bars"></i>
+  </a>
+</div>
+
+<script>
+    /* Toggle between showing and hiding the navigation menu links when the user clicks on the hamburger menu / bar icon */
+function myFunction() {
+  var x = document.getElementById("myLinks");
+  if (x.style.display === "block") {
+    x.style.display = "none";
+  } else {
+    x.style.display = "block";
+  }
+}
+</script>
+
+        <div id="imageModal" class="modal" onclick="closeModal()">
+            <span class="close-modal" onclick="closeModal()">&times;</span>
+            <img class="modal-content" id="modalImage" alt="Enlarged view">
+        </div>        
+
+    <div>
+        <footer id="footer">
+            Phone: +27 63 785 8327
+            <br> Customer Care: +27 79 841 6616
+            <br>Email:  h2oautospawhiteriver@gmail.com
+            <br>Address: Kingsview Mall, White River, Mpumalanga
+            <br>Share this page with your friends and family!
+            <br> Follow us on social media
+            <div class="social-icons">
+               <!-- <a href="https://www.instagram.com/h2oautospawhiteriver/" target="_blank" title="Instagram"><i class="social-icon" data-feather="instagram"></i> </a>
+                <a href="https://web.facebook.com/profile.php?id=61578030370368" target="_blank" title="Facebook"><i class="social-icon" data-feather="facebook"></i></a>
+                <a href="https://www.tiktok.com/@h2oautospa.whiter" target="_blank" title="Tiktok"><i class="social-icon" data-feather="music"></i></a>-->
+               <a href="https://www.instagram.com/h2oautospawhiteriver/" title="Instagram" target="_blank"> <ion-icon name="logo-instagram"  class="social-icon" ></ion-icon> </a> 
+               <a href="https://web.facebook.com/profile.php?id=61578030370368" title="Facebook" target="_blank"> <ion-icon name="logo-facebook"  class="social-icon" ></ion-icon> </a> 
+               <a href="https://www.tiktok.com/@h2oautospa.whiter" title="TikTok" target="_blank"> <ion-icon name="logo-tiktok"  class="social-icon" ></ion-icon> </a> 
+            </div> 
+            <br>MTechSolutions © Copyright 2025
+        </footer>
+    </div>
+
+   <!-- <script>
+        feather.replace();
+    </script>-->
+    <script>
+                function openModal(imageId) {
+            const modal = document.getElementById('imageModal');
+            const modalImg = document.getElementById('modalImage');
+            const img = document.getElementById(imageId);
+            
+            modal.style.display = 'block';
+            modalImg.src = img.src;
+            modalImg.alt = img.alt;
+        }
+
+        function closeModal() {
+            document.getElementById('imageModal').style.display = 'none';
+        }
+
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                closeModal();
+            }
+        });
+    </script>
+</body>
+</html>
