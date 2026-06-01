@@ -147,11 +147,21 @@ body {
     .topnav {
         margin-top: 1.5vh;
     }
+
+    .topnav #myLinks {
+        top: calc(100px + 39px);
+    }
 }
 
 /* Hide the links inside the navigation menu (except for logo/home) */
 .topnav #myLinks {
   display: none;
+  position: fixed;
+  top: calc(11vh + 39px);
+  left: 0;
+  z-index: 998;
+  background-color: #0277bd;
+  min-width: 150px;
 }
 
 /* Style navigation menu links */
