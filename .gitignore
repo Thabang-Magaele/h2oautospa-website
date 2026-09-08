@@ -1,24 +1,46 @@
-# Environment variables
+# ---------- Secrets & environment ----------
 .env
 .env.local
 .env.*.local
 
-# Node modules
+# Firebase Admin SDK service account keys — these grant full backend access.
+# NEVER commit these, at any point, for any reason.
+serviceAccountKey.json
+*-firebase-adminsdk-*.json
+
+# ---------- Firebase tooling ----------
+.firebase/
+firebase-debug.log
+firestore-debug.log
+ui-debug.log
+pubsub-debug.log
+database-debug.log
+
+# ---------- Node / npm (Cloud Functions, once built) ----------
 node_modules/
+functions/node_modules/
+npm-debug.log*
+yarn-error.log*
 
-# Build output
-dist/
-build/
+# ---------- Android app (once built) ----------
+*.apk
+*.aab
+*.jks
+*.keystore
+local.properties
+.gradle/
+/build/
+/captures/
+.externalNativeBuild/
+.cxx/
+# google-services.json contains project identifiers, not secrets, but keep
+# environment-specific copies (debug vs. release) out of version control —
+# commit a google-services.example.json instead.
+google-services.json
 
-# System files
+# ---------- OS / editor ----------
 .DS_Store
 Thumbs.db
-
-# IDE and editor folders
 .vscode/
 .idea/
-
-# Logs
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
+*.swp

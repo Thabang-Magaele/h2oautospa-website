@@ -47,11 +47,12 @@ service cloud.firestore {
         return data.keys().hasAll([
                  'bookingReference', 'customerName', 'customerPhone',
                  'vehicleRegistration', 'vehicleType', 'serviceId', 'serviceName',
-                 'bookingDate', 'bookingTime', 'status'
+                 'serviceAddress', 'bookingDate', 'bookingTime', 'status'
                ])
           && data.customerName is string && data.customerName.size() > 0 && data.customerName.size() < 100
           && data.customerPhone is string && data.customerPhone.size() > 0 && data.customerPhone.size() < 30
           && data.vehicleRegistration is string && data.vehicleRegistration.size() > 0
+          && data.serviceAddress is string && data.serviceAddress.size() > 0 && data.serviceAddress.size() < 300
           && data.status == 'PENDING'
           && data.bookingDate is string
           && data.bookingTime is string
