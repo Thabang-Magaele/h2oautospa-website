@@ -31,6 +31,7 @@ async function loadGoogleMaps() {
 // Don’t load Maps until the user actually needs it
 document.addEventListener("DOMContentLoaded", () => {
   const mapSection = document.getElementById("map");
+  if (!mapSection) return; // this page has no map (contact, feedback, booking)
 
   const observer = new IntersectionObserver((entries) => {
     if (entries[0].isIntersecting) {
