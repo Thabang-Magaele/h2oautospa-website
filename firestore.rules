@@ -1,0 +1,69 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // ---------- Customer profiles ----------
+    // Created at signup. One profile per authenticated customer, keyed by their auth uid.
+    match /users/{userId} {
+      allow read, update: if request.auth != null && request.auth.uid == userId;
+      allow create: if request.auth != null && request.auth.uid == userId
+                    && request.resource.data.keys().hasAll(['name', 'email', 'phone'])
+                    && request.resource.data.name is string
+                    && request.resource.data.email is string
+                    && request.resource.data.phone is string;
+      allow delete: if false;
+    }
+
+    // ---------- Bookings ----------
+    match /bookings/{bookingId} {
+      // Anyone — guest or signed-in customer — can create a booking, as long as:
+      //  - the required fields are present with sane types
+      //  - status always starts as PENDING (customers can never set their own status)
+      //  - if customerId is set, it must match the signed-in user
+      //    (you can't create a booking that claims to belong to someone else)
+      allow create: if isValidNewBooking(request.resource.data);
+
+      // A single booking can be read by its exact document ID — this is what
+      // powers the guest confirmation flow, since a guest has no account to
+      // check bookings under. The document ID is a long, random Firestore ID,
+      // not a guessable sequence, but anyone who has that ID/link can read
+      // that one booking. Tightening this later (e.g. requiring a matching
+      // phone number via a Cloud Function) is a reasonable follow-up.
+      allow get: if true;
+
+      // Listing/querying bookings (e.g. "My Bookings") requires being the
+      // signed-in customer who owns them.
+      allow list: if request.auth != null
+                  && request.auth.uid == resource.data.customerId;
+
+      // Customers can never modify or delete a booking once created.
+      // Status changes, assignment, and cancellation are staff-only actions,
+      // handled through the admin dashboard / Cloud Functions (not yet built).
+      // Until those exist, use the Firebase Console to update bookings manually.
+      allow update, delete: if false;
+
+      function isValidNewBooking(data) {
+        return data.keys().hasAll([
+                 'bookingReference', 'customerName', 'customerPhone',
+                 'vehicleRegistration', 'vehicleType', 'serviceId', 'serviceName',
+                 'serviceAddress', 'bookingDate', 'bookingTime', 'status'
+               ])
+          && data.customerName is string && data.customerName.size() > 0 && data.customerName.size() < 100
+          && data.customerPhone is string && data.customerPhone.size() > 0 && data.customerPhone.size() < 30
+          && data.vehicleRegistration is string && data.vehicleRegistration.size() > 0
+          && data.serviceAddress is string && data.serviceAddress.size() > 0 && data.serviceAddress.size() < 300
+          && data.status == 'PENDING'
+          && data.bookingDate is string
+          && data.bookingTime is string
+          && (data.customerId == null || data.customerId == request.auth.uid);
+      }
+    }
+
+    // Everything else (employees, services, settings, activityLogs, etc.)
+    // stays locked down until those pieces are actually built.
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}

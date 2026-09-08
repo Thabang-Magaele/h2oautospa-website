@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css?v=30102025">
+    <script src="main.js?v=30102025" defer></script>
+    <link rel="icon" type="image/png" href="/favicon.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <title>Book a Wash</title>
+</head>
+<body>
+
+    <div class="wrapper">
+
+<header class="header">
+    <img src="images/1.JPG" alt="H2O AutoSpa Logo">
+    <span>h2oAutoSpa</span>
+    <img id="promoImage" src="images/promotion.jpeg" alt="Promotion" class="promo-image" onclick="openModal('promoImage')">
+</header>
+
+<!-- Top Navigation Menu -->
+<div class="topnav">
+  <div id="myLinks">
+            <a href="index.html">Home</a>
+            <a href="booking.html">Book a Wash</a>
+            <a href="contact.html">Contact</a>
+            <a href="feedback.html">Feedback</a>
+  </div>
+  <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+    <i class="fa fa-bars"></i>
+  </a>
+</div>
+
+<script>
+function myFunction() {
+  var x = document.getElementById("myLinks");
+  if (x.style.display === "block") {
+    x.style.display = "none";
+  } else {
+    x.style.display = "block";
+  }
+}
+</script>
+
+        <div class="coming-soon-banner">
+            🚗 Online booking is launching soon — call or WhatsApp us to book for now: <a href="tel:+27637858327">+27 63 785 8327</a>
+        </div>
+
+        <h1 id="hero_title">Book Your Wash</h1>
+<div id="comingSoonPanel">
+    <section class="info-section">
+        <h2>🚗 Online Bookings Coming Soon</h2>
+        <p>
+            We're putting the finishing touches on online booking for our mobile car wash service. <br>
+            In the meantime, give us a call or drop us a WhatsApp and we'll get your wash sorted.
+        </p>
+        <a href="tel:+27637858327" class="booking-submit">Call +27 63 785 8327</a>
+        <a href="https://wa.me/27637858327" target="_blank" class="booking-submit whatsapp-btn">Message Us on WhatsApp</a>
+    </section>
+</div>
+
+<div id="accountSection" style="display:none;">
+    <section class="info-section">
+        <h2>Your Account</h2>
+
+        <div id="guestView">
+            <p>
+                You can book as a guest — no account needed. <br>
+                Want to track your booking history? <a href="#" id="showLoginLink" style="color:#0277bd;">Log in</a> or <a href="#" id="showSignupLink" style="color:#0277bd;">create an account</a>.
+            </p>
+
+            <form class="booking-form account-form" id="loginForm" style="display:none;">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="loginEmail">Email</label>
+                        <input type="email" id="loginEmail" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="loginPassword">Password</label>
+                        <input type="password" id="loginPassword" required>
+                    </div>
+                </div>
+                <button type="submit" class="booking-submit">Log In</button>
+                <p style="font-size: 0.9rem; margin-top: 0.75rem;">
+                    <a href="#" id="forgotPasswordLink" style="color:#0277bd;">Forgot password?</a>
+                </p>
+            </form>
+
+            <form class="booking-form account-form" id="signupForm" style="display:none;">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="signupName">Full Name</label>
+                        <input type="text" id="signupName" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="signupEmail">Email</label>
+                        <input type="email" id="signupEmail" required>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="signupPhone">Phone Number</label>
+                        <input type="tel" id="signupPhone" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="signupPassword">Password (min. 6 characters)</label>
+                        <input type="password" id="signupPassword" minlength="6" required>
+                    </div>
+                </div>
+                <button type="submit" class="booking-submit">Create Account</button>
+            </form>
+
+            <p id="accountMessage" class="account-message" style="display:none;"></p>
+        </div>
+
+        <div id="loggedInView" style="display:none;">
+            <p>Logged in as <strong id="loggedInEmail"></strong> · <a href="#" id="logoutLink" style="color:#0277bd;">Log out</a></p>
+            <h3 style="color:#01579b; margin: 1.5rem 0 0.5rem;">My Bookings</h3>
+            <div id="myBookingsList"></div>
+        </div>
+    </section>
+</div>
+
+<div id="bookingFormSection" style="display:none;">
+    <section class="info-section">
+        <h2>Reserve Your Slot</h2>
+        <p id="bookingIntro">
+            Fill in your details below to submit a booking request. <br>
+            Prefer to speak to someone first? Call <a href="tel:+27637858327" style="color:#0277bd;">+27 63 785 8327</a>.
+        </p>
+
+        <form class="booking-form" id="bookingForm">
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="fullName">Full Name *</label>
+                    <input type="text" id="fullName" name="fullName" placeholder="e.g. Thabo Mokoena" required>
+                </div>
+                <div class="form-group">
+                    <label for="phone">Phone Number *</label>
+                    <input type="tel" id="phone" name="phone" placeholder="e.g. 082 123 4567" required>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="email">Email (optional)</label>
+                    <input type="email" id="email" name="email" placeholder="you@example.com">
+                </div>
+                <div class="form-group">
+                    <label for="vehicleReg">Vehicle Registration *</label>
+                    <input type="text" id="vehicleReg" name="vehicleReg" placeholder="e.g. ABC 123 MP" required>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="vehicleType">Vehicle Type *</label>
+                    <select id="vehicleType" name="vehicleType" required>
+                        <option value="" disabled selected>Select vehicle type</option>
+                        <option value="Sedan / Hatchback">Sedan / Hatchback</option>
+                        <option value="SUV / Crossover">SUV / Crossover</option>
+                        <option value="Bakkie / Pickup">Bakkie / Pickup</option>
+                        <option value="Van / Minibus">Van / Minibus</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="service">Service *</label>
+                    <select id="service" name="service" required>
+                        <option value="" disabled selected>Select a service</option>
+                        <option value="basic-wash">Basic Wash</option>
+                        <option value="wash-vacuum">Wash &amp; Vacuum</option>
+                        <option value="interior-detail">Interior Detail</option>
+                        <option value="full-detail">Full Detail (Interior + Exterior)</option>
+                        <option value="fleet-bulk">Fleet / Bulk Booking</option>
+                    </select>
+                    <small style="color: #0277bd;">See our full price list on the <a href="index.html" style="color:#0277bd;">home page</a>.</small>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="date">Preferred Date *</label>
+                    <input type="date" id="date" name="date" required>
+                </div>
+                <div class="form-group">
+                    <label for="time">Preferred Time *</label>
+                    <select id="time" name="time" required>
+                        <option value="" disabled selected>Select a time</option>
+                        <option value="09:00">09:00</option>
+                        <option value="10:00">10:00</option>
+                        <option value="11:00">11:00</option>
+                        <option value="12:00">12:00</option>
+                        <option value="13:00">13:00</option>
+                        <option value="14:00">14:00</option>
+                        <option value="15:00">15:00</option>
+                        <option value="16:00">16:00</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group" style="flex: 1 1 100%;">
+                    <label for="serviceAddress">Service Address *</label>
+                    <textarea id="serviceAddress" name="serviceAddress" rows="2" placeholder="Street address, suburb, and any landmark that helps us find you" required></textarea>
+                    <small style="color: #0277bd;">We come to you — this is where we'll wash your vehicle.</small>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group" style="flex: 1 1 100%;">
+                    <label for="notes">Additional Notes</label>
+                    <textarea id="notes" name="notes" rows="2" placeholder="Anything else we should know?"></textarea>
+                </div>
+            </div>
+
+            <button type="submit" class="booking-submit">Submit Booking</button>
+            <p id="bookingFormError" class="account-message" style="display:none;"></p>
+        </form>
+
+        <div id="bookingConfirmation" style="display:none;">
+            <h3 style="color:#01579b;">Booking Received!</h3>
+            <p>
+                Your reference number is <strong id="confirmationRef"></strong>. <br>
+                We'll confirm your slot shortly — save this reference for your records.
+            </p>
+            <a id="confirmationWhatsapp" class="booking-submit" target="_blank">Message Us on WhatsApp</a>
+            <button id="bookAnotherBtn" class="booking-submit" style="background: linear-gradient(135deg, #78909c 0%, #90a4ae 100%); margin-top: 1rem;">Book Another Wash</button>
+        </div>
+
+        <p style="font-size: 0.95rem; margin-top: 1.5rem;">
+            Or email us directly at <a href="mailto:h2oautospawhiteriver@gmail.com" style="color:#0277bd;">h2oautospawhiteriver@gmail.com</a>
+        </p>
+    </section>
+</div>
+
+<div id="imageModal" class="modal" onclick="closeModal()">
+    <span class="close-modal" onclick="closeModal()">&times;</span>
+    <img class="modal-content" id="modalImage" alt="Enlarged view">
+</div>
+
+        <footer id="footer">
+            Phone: +27 63 785 8327
+            <br> Customer Care: +27 79 841 6616
+            <br>Email:  h2oautospawhiteriver@gmail.com
+            <br>Address: Kingsview Mall, White River, Mpumalanga
+            <br>Share this page with your friends and family!
+            <br> Follow us on social media
+            <div class="social-icons">
+               <a href="https://www.instagram.com/h2oautospawhiteriver/" title="Instagram" target="_blank"><ion-icon name="logo-instagram" class="social-icon"></ion-icon> </a>
+               <a href="https://web.facebook.com/profile.php?id=61578030370368" title="Facebook" target="_blank"> <ion-icon name="logo-facebook" class="social-icon"></ion-icon> </a>
+               <a href="https://www.tiktok.com/@h2oautospa.whiter?lang=en-GB" title="TikTok" target="_blank"> <ion-icon name="logo-tiktok" class="social-icon"></ion-icon> </a>
+            </div>
+            <br>MTechSolutions © Copyright 2025
+        </footer>
+    </div>
+
+    <script>
+        function openModal(imageId) {
+            const modal = document.getElementById('imageModal');
+            const modalImg = document.getElementById('modalImage');
+            const img = document.getElementById(imageId);
+
+            modal.style.display = 'block';
+            modalImg.src = img.src;
+            modalImg.alt = img.alt;
+        }
+
+        function closeModal() {
+            document.getElementById('imageModal').style.display = 'none';
+        }
+
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                closeModal();
+            }
+        });
+    </script>
+
+    <script type="module" src="booking.js?v=28082026"></script>
+</body>
+</html>
